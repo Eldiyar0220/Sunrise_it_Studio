@@ -1,0 +1,44 @@
+@import "mixin";
+
+h1.title-page {
+  @include responsiveFont(80, 24);
+
+  &.m__left {
+  }
+
+  &.m__center {
+  }
+
+  &.m__right {
+  }
+}
+
+h2.title-section {
+  @include responsiveFont(32, 20);
+
+  &.m__left {
+  }
+
+  &.m__center {
+  }
+
+  &.m__right {
+  }
+}
+
+h3.title-box {
+  @include responsiveFont(30, 18);
+
+  &.m__left {
+  }
+
+  &.m__center {
+  }
+
+  &.m__right {
+  }
+}
+
+p.description {
+  @include responsiveFont(18, 17);
+}

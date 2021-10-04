@@ -1,0 +1,65 @@
+.btn {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000000;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: #fff;
+  color: #000;
+
+  &.btn-default {
+    background-color: #000;
+    color: #fff;
+
+    &:hover {
+      background-color: #fff;
+      color: #000;
+    }
+  }
+
+  &.btn-danger {
+    background-color: red;
+    border-color: red;
+    color: #fff;
+
+    &:hover {
+      background-color: #fff;
+      color: red;
+    }
+  }
+
+  &.btn-success {
+    background-color: green;
+    border-color: green;
+    color: #fff;
+
+    &:hover {
+      background-color: #fff;
+      color: green;
+    }
+  }
+
+  &.btn-outline {
+    background-color: transparent;
+    color: #000;
+
+    &:hover {
+      background-color: transparent;
+      color: #000;
+    }
+  }
+
+  &.btn-link {
+    background-color: transparent;
+    border-color: transparent;
+    color: #000;
+
+    &:hover {
+      background-color: transparent;
+      color: #000;
+    }
+  }
+}

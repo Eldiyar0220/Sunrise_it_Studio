@@ -1,0 +1,15 @@
+@import "base/vars";
+@import "base/mixin";
+@import "base/base";
+@import "base/typography";
+@import "base/margin";
+
+@import "partials/header";
+@import "partials/footer";
+
+@import "components/_temp";
+
+@import "pages/_temp";
+
+@import "../../templates/spriteSVG/sprite";
+

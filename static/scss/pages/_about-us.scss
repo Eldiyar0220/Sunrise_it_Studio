@@ -1,0 +1,133 @@
+.about__us-content {
+  background: #FFFFFF;
+  border-radius: 10px;
+  padding: 32px 32px 48px 32px;
+
+  @include MQ(phone) {
+    padding: 24px 16px;
+  }
+
+  .about__title {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    color: #1D1D1D;
+    max-width: 305px;
+    margin-bottom: 4px;
+
+    @include MQ(phone) {
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+
+  .faq__text {
+    font-size: 14px;
+    line-height: 175%;
+    color: #8F8F8F;
+
+    @include MQ(phone) {
+      font-size: 13px;
+      line-height: 140%;
+    }
+  }
+
+  .faq__slider {
+    margin: 32px 0;
+    position: relative;
+
+    .faq__swiper-container {
+      border-radius: 10px;
+    }
+
+    .faq__swiper-slide {
+      height: 314px;
+
+      @include MQ(m-tabled) {
+        height: 250px;
+      }
+
+      @media (max-width: 425px) {
+        height: 200px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+    }
+  }
+
+  .faq__swiper-arrow {
+    width: 32px;
+    height: 32px;
+    background: white;
+    border-radius: 50%;
+    transition: .2s;
+
+    @include MQ(phone) {
+      display: none;
+    }
+
+    &:hover {
+      background: #003CAA;
+
+      path {
+        fill: white;
+      }
+    }
+
+    &::after {
+      display: none;
+    }
+
+    &.faq__swiper-next {
+      right: 16px;
+    }
+
+    &.faq__swiper-left {
+      left: 16px;
+    }
+  }
+
+  .faq__swiper-pagination {
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+
+    .swiper-pagination-bullet {
+      width: 6px;
+      height: 6px;
+      opacity: 1;
+      background: white;
+
+      &.swiper-pagination-bullet-active {
+        width: 16px;
+        background: #2265DE;
+        border-radius: 16px;
+      }
+    }
+  }
+
+  .faq__video {
+    width: 100%;
+    height: 400px;
+
+    @include MQ(m-tabled) {
+      height: 300px;
+    }
+
+    @media (max-width: 425px) {
+      height: 200px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

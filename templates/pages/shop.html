@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_page %}{% endblock %}
+
+{% block style-libs %}{% endblock %}
+
+{% block style %}{%endblock %}
+
+{% block content %}
+
+<div class="gray__body" xmlns="http://www.w3.org/1999/html">
+        <div class="container">
+            <div class="faq__wrap">
+                <div class="shop__wrap">
+                    <div class="shop__head">
+                        <h2 class="shop__title">
+                            Магазины
+                        </h2>
+                        <div class="shop__filter">
+                            <a href="{% url 'shop' %}" class="filter__item">
+                                Все
+                            </a>
+                            {% for country in Countries %}
+                            <a href="{% url 'country' country.slug %}" class="filter__item">
+                                {{ country }}
+                            </a>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+
+                    <div class="shop__grid allposts" >
+
+                         {% for post in postes %}
+                         <a href="{% url 'detail' post.id%}">
+                        {% if forloop.last %}
+                             <div class="grid__item posts last-post" data-postid="{{ post.id }}">
+                            {% else %}
+                                 <div class="grid__item posts">
+                                     {% endif %}
+                            <div class="shop__img">
+                                <img src="{{ post.get_image }}" alt="">
+                            </div>
+
+                            <div class="grid__item-info">
+                                <div class="shop__item-head">
+
+                                    <div class="shop__item-img">
+                                        <img src="{% static 'img/png/nike.png' %}" alt="">
+                                    </div>
+                                    <h5 class="shop__item-ttl">
+                                        {{ post.title }}
+                                    </h5>
+                                </div>
+                                <p class="shop__item-text">
+                                    {{ post.description|truncatewords:10 }}
+                                </p>
+                            </div>
+
+                                 </div>
+                         </a>
+                        {% endfor %}
+
+
+                    </div>
+                    <div class="shop__more-wrap">
+                        <a href="#" class="shop__more">
+                            Больше Магазинов!
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}
+
+{% block scripts %}
+soemthing
+{% endblock %}

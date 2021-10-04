@@ -1,0 +1,275 @@
+.gray__body {
+  background: #F5F5F5;
+}
+
+.faq__wrap {
+  max-width: 1035px;
+  margin: 0 auto;
+  display: flex;
+  gap: 17px;
+  padding: 56px 0 80px 0;
+
+  @include MQ(l-tablet) {
+    padding: 40px 0;
+    flex-direction: column;
+  }
+
+  .faq__sidebar-wrap {
+    flex-shrink: 0;
+    width: 235px;
+
+    @include MQ(l-tablet) {
+      width: 100%;
+    }
+  }
+
+  .faq__main {
+    flex-grow: 1;
+    width: calc(100% - 252px);
+
+    @include MQ(l-tablet) {
+      width: 100%;
+    }
+  }
+
+  .faq__sidebar {
+    width: 100%;
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 16px;
+    position: sticky;
+    top: 70px;
+  }
+
+  .faq__links {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #F7F1FE;
+
+    .faq__link {
+      text-decoration: none;
+      display: flex;
+      gap: 12px;
+      font-size: 14px;
+      line-height: 150%;
+      color: #171717;
+      transition: .2s;
+
+      &:hover {
+        color: #003CAA;
+
+        &.about-us {
+          &::before {
+            background-image: url("../img/icon/settings-filled.svg");
+          }
+        }
+
+        &.contacts {
+          &::before {
+            background-image: url("../img/icon/heart-filled.svg");
+          }
+        }
+
+        &.faq {
+          &::before {
+            background-image: url("../img/icon/question-filled.svg");
+          }
+        }
+      }
+
+      &.active {
+        color: #003CAA;
+
+        &.about-us {
+          &::before {
+            background-image: url("../img/icon/settings-filled.svg");
+          }
+        }
+
+        &.contacts {
+          &::before {
+            background-image: url("../img/icon/heart-filled.svg");
+          }
+        }
+
+        &.faq {
+          &::before {
+            background-image: url("../img/icon/question-filled.svg");
+          }
+        }
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        transition: .2s;
+      }
+
+      &.about-us {
+        &::before {
+          background-image: url("../img/icon/settings-def.svg");
+        }
+      }
+
+      &.contacts {
+        &::before {
+          background-image: url("../img/icon/heart-def.svg");
+        }
+      }
+
+      &.faq {
+        &::before {
+          background-image: url("../img/icon/question-def.svg");
+        }
+      }
+    }
+  }
+
+  .faq__contact-us {
+    font-size: 14px;
+    line-height: 150%;
+    color: #003CAA;
+    cursor: pointer;
+  }
+
+  .faq__question {
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 32px 32px 40px 32px;
+    margin-bottom: 64px;
+    position: relative;
+
+    &:last-child {
+      margin-bottom: 0;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    @include MQ(l-tablet) {
+      padding: 24px 24px 32px 24px;
+    }
+
+    @media (max-width: 425px) {
+      padding: 24px 16px;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #D9E6FF;
+      position: absolute;
+      bottom: -32px;
+      left: 0;
+    }
+  }
+
+  .question__title {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    color: #1D1D1D;
+    margin-bottom: 24px;
+  }
+
+  .faq__accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .accordion__title {
+      font-size: 14px;
+      line-height: 150%;
+      color: #1D1D1D;
+      padding: 10px 24px 10px 16px;
+      background: #F5F5F5;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: normal;
+      gap: 10px;
+
+      &.active {
+        color: #003CAA;
+
+        &::after {
+          transform: rotate(180deg);
+        }
+      }
+
+      @media (max-width: 425px) {
+        padding: 10px 16px;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        width: 24px;
+        height: 24px;
+        background: url("../img/icon/chevron-down_24.svg") no-repeat center;
+        background-size: contain;
+      }
+    }
+
+    .accordion__answer {
+      font-size: 12px;
+      line-height: 150%;
+      color: #585858;
+      padding: 8px 24px 20px 16px;
+      display: none;
+    }
+  }
+}
+
+.micromodal-slide.questions-success {
+
+  .modal__overlay {
+    .modal__container {
+      max-width: 366px;
+    }
+
+    .area__modal{
+      padding-bottom: 48px;
+    }
+  }
+
+  img {
+    width: 220px;
+    margin: 0 auto 55px auto;
+    display: block;
+  }
+
+  h3 {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: #1D1D1D;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #616161;
+  }
+
+  .personal__btn.modal__btn{
+    max-width: 220px;
+    margin: 24px auto 0 auto;
+  }
+}

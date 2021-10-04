@@ -1,0 +1,48 @@
+@import "mixin";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding-top: 68px;
+
+  @media (max-width: 425px) {
+    padding-top: 55px;
+  }
+}
+
+form, input, select, textarea, button {
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  $paddingContainer: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 #{$paddingContainer};
+  @include MQ(m-desctop) {
+    max-width: calc(1024px - #{$paddingContainer * 2});
+  }
+  @include MQ(l-tablet) {
+    max-width: calc(768px - #{$paddingContainer * 2});
+  }
+  @include MQ(m-tabled) {
+    max-width: calc(640px - #{$paddingContainer * 2});
+  }
+  @include MQ(phone) {
+    max-width: 100%;
+  }
+}
+
+
+main {
+  min-height: 50vh;
+}
+

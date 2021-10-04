@@ -1,0 +1,193 @@
+.form-control {
+  margin-bottom: 20px;
+
+  //  --- error text --- //
+
+  &.form-control-error {
+    input {
+      &[type="text"], &[type="number"], &[type="password"] {
+        border-color: red;
+
+        &:focus {
+          border-color: red;
+        }
+      }
+    }
+  }
+
+  span.form-control-error {
+    font-size: 12px;
+    padding: 10px;
+    color: red;
+    display: block;
+  }
+
+  //  --- label --- //
+
+  label:not([for]) {
+    display: block;
+    padding: 0 0 10px 0;
+    font-size: 14px;
+  }
+
+  label[for] {
+    display: flex;
+    padding: 0 0 10px 0;
+    font-size: 14px;
+    cursor: pointer;
+    align-items: center;
+  }
+
+  label[disabled] {
+    pointer-events: none;
+    opacity: 0.5;
+    user-select: none;
+  }
+
+  //  --- checkbox & radio text --- //
+
+  .form-control-value {
+    margin-left: 5px;
+  }
+
+  //  --- input settings --- //
+
+  input {
+
+    &[type="text"], &[type="number"], &[type="password"] {
+      width: $f-w;
+      height: $f-h;
+      padding: 0 16px;
+      border: $b-w-c;
+
+      &:focus {
+        border-color: $b-f-c;
+      }
+
+      &::-webkit-input-placeholder {
+        color: $color-placeholder-form;
+      }
+
+      &::-moz-placeholder {
+        color: $color-placeholder-form;
+      }
+
+      &:-ms-input-placeholder {
+        color: $color-placeholder-form;
+      }
+
+      &:-moz-placeholder {
+        color: $color-placeholder-form;
+      }
+    }
+
+    &[type="checkbox"] {
+      display: none;
+    }
+
+    &[type="checkbox"] + .custom-checkbox {
+      width: 20px;
+      min-width: 20px;
+      height: 20px;
+      border: 1px solid #eee;
+    }
+
+    &[type="checkbox"]:checked + .custom-checkbox {
+      background-color: blue;
+      border-color: blue;
+    }
+
+    &[type="radio"] {
+      display: none;
+
+      &[disabled] + .custom-radio {
+        pointer-events: none;
+      }
+    }
+
+    &[type="radio"] + .custom-radio {
+      width: 20px;
+      min-width: 20px;
+      height: 20px;
+      border: 1px solid #eee;
+      border-radius: 50%;
+    }
+
+    &[type="radio"]:checked + .custom-radio {
+      background-color: red;
+      border-color: red
+    }
+  }
+
+  //  --- select settings --- //
+
+  select {
+    width: $f-w;
+    height: $f-h;
+    padding: 0 16px 0 10px;
+    background-image: url(../img/icon/chevron-down.svg);
+    background-position: right 10px center;
+    background-size: 20px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border: $b-w-c;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+
+    &:focus {
+      border-color: $b-f-c;
+    }
+  }
+
+  //  --- textarea settings --- //
+
+  textarea {
+    width: $f-w;
+    padding: 16px;
+    max-width: $f-w;
+    border: $b-w-c;
+
+    &:focus {
+      border-color: $b-f-c;
+    }
+
+    &::-webkit-input-placeholder {
+      color: $color-placeholder-form;
+    }
+
+    &::-moz-placeholder {
+      color: $color-placeholder-form;
+    }
+
+    &:-ms-input-placeholder {
+      color: $color-placeholder-form;
+    }
+
+    &:-moz-placeholder {
+      color: $color-placeholder-form;
+    }
+  }
+
+  //  --- button form settings --- //
+
+  .form-btn {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+    border: 1px solid #333;
+    background-color: #fff;
+    color: #000;
+    text-decoration: none;
+    padding: 6px 12px;
+    display: inline-flex;
+    line-height: 1;
+
+    &[disabled] {
+      pointer-events: none;
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  }
+}

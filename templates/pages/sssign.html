@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title_page %}{% endblock %}
+
+{% block style-libs %}{% endblock %}
+
+{% block style %}{% endblock %}
+
+{% block content %}
+<h1>login</h1>
+<form method="post">
+
+    <button type="submit">login</button>
+
+
+        <a href="{% url 'register' %}">Зарегистрироваться</a>
+         <div class="forget__password" data-micromodal-trigger="forget-password">
+                           Забыли пароль?
+                       </div>
+
+     <div class="modal micromodal-slide" id="edit-profile-success"
+         aria-hidden="true">
+        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__container" role="dialog" aria-modal="true">
+                <div class="area__modal">
+                    <div class="modal__close" data-micromodal-close></div>
+                    <div class="modal__inner">
+                        <img src="{% static 'img/png/password-changed.png' %}"
+                             alt="">
+                        <p class="success__text">
+                            Ваш пароль успешно
+                            изменен!
+                        </p>
+                        <button type="submit" class="personal__btn modal__btn "data-micromodal-close
+                                >
+                            Хорошо
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <div class="modal micromodal-slide" id="forget-password" aria-hidden="true">
+        <div class="modal__overlay sign__modal-overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__container" role="dialog" aria-modal="true">
+                <div class="area__modal">
+                    <div class="modal__close" data-micromodal-close></div>
+                    <h2 class="modal__title">
+                        Введите ваш используемый
+                        Email
+                    </h2>
+                    <p class="modal__subtitle">
+                        На ваш email будет отправлено письмо
+                        с ссылкой для смены пароля
+                    </p>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+
+                        <div class="fields error">
+                            <label for="sign-email" class="sign__label">
+                                Текущий Email
+                            </label>
+<!--                            <input required type="text" id="sign-email" class="sign__input"-->
+<!--                                   placeholder="Primer@gmail.com">-->
+                                {{ form1 }}
+                            <p class="email__error">
+                                Email не совпадает
+                            </p>
+                        </div>
+                         <button type="submit" class="personal__btn modal__btn">
+                            Сохранить изменения
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+                                            {#    модалка успешного отправления  #}
+
+
+
+
+
+</div></form>
+{% endblock %}
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script>
+
+var submitted = false;
+var form = document.getElementById("email-form");
+form.onsubmit = function(){
+   if(!submitted){
+       submitted = false;
+       //some ajax function
+   }
+
+   return false;
+}
+</script>
+
+
+<script>
+    $('#send').on('click', function (){
+<!--        let email = document.getElementById('sign-email').value;-->
+        let email = $('.must')[0].value;
+
+        let data = {
+            email: email
+        }
+        console.log(email);
+
+        console.log('Script is avaiable');
+
+        $.ajax({
+            method:"GET",
+            dataType: "json",
+            data: data,
+            url: "{% url "forgot-password" %}",
+            success: function(data){
+                let result = data['data']
+                if (result){
+                    console.log(result);
+                    $('#email-verify-modal').css('display', 'flex');
+                    $('#form-modal').css('display', 'none');
+                } else {
+                    console.log(false);
+                    $("#field").addClass("error");
+                    if ($('#must2').length == 0){
+                    $(".must").after('<p class="email__error" id="must2">Email не совпадает </p>');
+                    };
+
+                };
+            }
+        })
+    })
+</script>
+ <script>
+<!--        MicroModal.show('change-password-success');-->
+        MicroModal.show('edit-profile-success');
+    </script>
+{% endblock %}
